@@ -23,7 +23,7 @@ const LoginPage: React.FC = () => {
     setLoading(true);
     setError('');
 
-    const result = await login(username.trim(), password);
+    const result = await login(username.trim(), password.trim());
     
     if (!result.success) {
       setError(result.error || 'Login failed');
