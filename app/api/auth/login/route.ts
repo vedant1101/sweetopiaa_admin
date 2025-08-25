@@ -20,8 +20,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate credentials against environment variables
-    if (username === adminUsername && password === adminPassword) {
+    // Normalize username to lowercase before comparison
+    const normalizedUsername = username.trim().toLowerCase();
+    const expectedUsername = adminUsername.trim().toLowerCase();
+
+    // Validate credentials
+    if (normalizedUsername === expectedUsername && password === adminPassword) {
       const user = {
         id: 1,
         username: adminUsername,
