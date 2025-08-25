@@ -47,6 +47,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache'
         },
         body: JSON.stringify({ username, password }),
       });
